@@ -6,7 +6,8 @@ class Leaderboard extends Component {
     static propTypes = {
         leaderboard: PropTypes.array.isRequired,
         setThirtyDay: PropTypes.func.isRequired,
-        setAllTime: PropTypes.func.isRequired
+        setAllTime: PropTypes.func.isRequired,
+        sortedBy: PropTypes.string
     };
 
     makeLeaderboardRow = (leader, index) => {
@@ -26,8 +27,16 @@ class Leaderboard extends Component {
                             <tr>
                                 <th><div>Rank</div></th>
                                 <th><div>Name</div></th>
-                                <th className="clickable"><div onClick={this.props.setThirtyDay}>Points in the Last 30 Days</div></th>
-                                <th className="clickable"><div onClick={this.props.setAllTime}>All time points</div></th>
+                                <th className={this.props.sortedBy === 'thirtyDay' ? 'sorted clickable' : 'clickable'}>
+                                    <div onClick={this.props.setThirtyDay} >
+                                            Points in the Last 30 Days
+                                    </div>
+                                </th>
+                                <th className={this.props.sortedBy === 'allTime' ? 'sorted clickable' : 'clickable'}>
+                                    <div onClick={this.props.setAllTime} >
+                                            All time points
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

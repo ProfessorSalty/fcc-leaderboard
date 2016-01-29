@@ -9,6 +9,7 @@ class LeaderboardManager extends Component {
         super();
         this.state = {
             leaderboard: [],
+            sortedBy: ''
         };
     }
 
@@ -26,13 +27,15 @@ class LeaderboardManager extends Component {
 
     setThirtyDayLeaderboard() {
         this.setState({
-            leaderboard: LeaderboardStore.getThirtyDay()
+            leaderboard: LeaderboardStore.getThirtyDay(),
+            sortedBy: 'thirtyDay'
         });
     }
 
     setAllTimeLeaderboard() {
         this.setState({
-            leaderboard: LeaderboardStore.getAllTime()
+            leaderboard: LeaderboardStore.getAllTime(),
+            sortedBy: 'allTime'
         });
     }
 
@@ -42,6 +45,7 @@ class LeaderboardManager extends Component {
                 leaderboard={this.state.leaderboard}
                 setThirtyDay={this.setThirtyDayLeaderboard.bind(this)}
                 setAllTime={this.setAllTimeLeaderboard.bind(this)}
+                sortedBy={this.state.sortedBy}
             />
         );
     }
