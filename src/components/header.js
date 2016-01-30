@@ -9,7 +9,7 @@ class Header extends Component {
                     <li><a href="#">Back</a></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                    <li><a href="">Check me out on GitHub</a></li>
+                    <li><a href="https://github.com/PortableStick/fcc-leaderboard" target="_blank">Check me out on GitHub</a></li>
                 </ul>
             </div>
         );
