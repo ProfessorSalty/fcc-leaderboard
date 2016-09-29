@@ -1,0 +1,95 @@
+@import '_variables.scss';
+
+body {
+    background-color: $bodyBG;
+}
+
+.container {
+    background-color: $containerBG;
+}
+
+table.table {
+    background-color: $tableBG;
+    th {
+        text-align: center;
+        transition: all 0.4s;
+        color: $mainFontColor;
+        background-color: $headerCellBG;
+
+        div {
+            width: 100%;
+            height: 100%;
+            transform: translate(-25px);
+            transition: translate 0.4s;
+            padding: 10px 10px 10px 5px;
+            margin: 0;
+            font-size: 1.4em;
+
+            &:not(.sorted)::before {
+                content: 'Sort by: ';
+                opacity: 0;
+                transition: transform 0.2s, opacity 0.4s;
+                display: inline-block;
+            }
+        }
+
+        &.clickable {
+            cursor: pointer;
+        }
+
+        &.clickable:hover {
+            background-color: $sortHoverBG;
+        }
+
+        &.clickable:hover div::before{
+            opacity: 1;
+            transform: translateX(-10px);
+        }
+        &.clickable:hover div {
+            transform: translateY(0);
+        }
+
+        &.sorted {
+            background-color: $sortedHeaderBG;
+            & div {
+                transform: translateX(5px);
+                font-size: 1.2em;
+            }
+            & div::before {
+                transform: translateX(-10px);
+            }
+            & div::before {
+                content: 'Sorted by: ';
+                opacity: 1;
+                color: $sortedByFontColor;
+            }
+        }
+    }
+
+    div.rank {
+        font-size: 1.6em;
+        padding: 0;
+        text-align: center;
+    }
+
+    div.points {
+        font-size: 1.4em;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .img {
+        max-width: 50px;
+        margin: 0 5px;
+    }
+
+    span.username {
+        font-size: 1.4em;
+        padding: 0 10px;
+    }
+}
+
+.navbar-nav {
+    padding: 0 15px;
+    font-size: 1.3em;
+}
