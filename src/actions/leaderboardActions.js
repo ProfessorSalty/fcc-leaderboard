@@ -2,8 +2,8 @@ import Dispatcher from '../dispatcher/appDispatcher';
 import ActionTypes from '../constants/ActionTypes';
 import $ from 'jquery';
 
-const ALLTIME = 'http://fcctop100.herokuapp.com/api/fccusers/top/alltime',
-    THIRTYDAY = 'http://fcctop100.herokuapp.com/api/fccusers/top/recent';
+const ALLTIME = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime',
+    THIRTYDAY = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
 const leaderboardActions = {
     getLeaderboard: (url) => {
         return $.get(url);
